@@ -2,11 +2,11 @@ Delilah resto
 APP para delivery de comidas.
 
 Instalaciones requeridas:
-NodeJs 
-XAMPP (MySQL)
-Postman
-Visual Studio Code
-HeidiSQL (sugerido)
+- NodeJs
+- XAMPP (MySQL)
+- Postman
+- Visual Studio Code
+- HeidiSQL (sugerido)
 
 Pasos a seguir:
 
@@ -146,9 +146,9 @@ Rutas:
     (api para todos los usuarios)
   
     POST pedidos/2/1/1
-    > El primer ID corresponde al usuario
-    > El segundo ID corresponde a la forma de pago
-    > El tercer ID corresponde al estado
+    > El primer ID corresponde al usuario, 
+    > El segundo ID corresponde a la forma de pago, 
+    > El tercer ID corresponde al estado 
     
     BODY:
     [
@@ -192,17 +192,17 @@ Rutas:
     (api para todos los usuarios)
   
     POST /favoritos/2/2
-    > El primer ID corresponde al usuario
-    > El segundo ID corresponde al producto
+    > El primer ID corresponde al usuario, 
+    > El segundo ID corresponde al producto, 
     > Body vacio
 
   - Borrar un Favorito
   (api para todos los usuarios)
 
     DELETE /favoritos/2/2
-    > El primer ID corresponde al usuario
-    > El segundo ID corresponde al producto
-    > Body vacio
+    > El primer ID corresponde al usuario, 
+    > El segundo ID corresponde al producto. 
+    > Body vacio 
 
 ******Estados******
   - Obtener todos los estados
