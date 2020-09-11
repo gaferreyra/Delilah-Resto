@@ -1,0 +1,218 @@
+---
+swagger: "2.0"
+info:
+  description: Delilah resto APP para delivery de comidas
+  version: 1.0.0
+  title: Simple Inventory API
+  contact:
+    email: you@your-company.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+host: virtserver.swaggerhub.com
+basePath: /gaferreyra8/Delilah-Resto/1.0.0
+schemes:
+- https
+paths:
+  /usuario:
+    get:
+      tags:
+      - Usuarios
+      summary: Obtener usuarios
+      description: Solo puede ser realizada por el admin.
+      parameters:
+      - name: Authorization bearer
+        in: header
+        description: token
+        required: true
+      - name: id
+        in: query
+        description: Se puede utilizar como filtro de búsqueda por ID de usuario
+        required: false
+      responses:
+        "200":
+          description: Operación exitosa
+      security:
+      - autenticacionJWT: []
+    post:
+      tags:
+      - Usuarios
+      summary: Crear usuario
+      description: Dar de alta un usuario.
+      parameters: []
+      responses:
+        "201":
+          description: Usuario creado
+  /usuarios:
+    put:
+      tags:
+      - Usuarios
+      summary: Actualizar usuario por ID
+      description: Solo puede ser realizado por el usuario admin
+      parameters:
+      - name: Authorization bearer
+        in: header
+        description: token
+        required: true
+      - name: id_usuario
+        in: path
+        description: ID del usuario
+        required: true
+      responses:
+        "200":
+          description: Actualización exitosa
+      security:
+      - autenticacionJWT: []
+    delete:
+      tags:
+      - Usuarios
+      summary: Eliminar usuario por ID
+      description: Puede ser realizado por el usuario o administrador.
+      parameters:
+      - name: Authorization bearer
+        in: header
+        description: token
+        required: true
+      - name: userId
+        in: path
+        description: ID del usuario
+        required: true
+      responses:
+        "200":
+          description: Usuario eliminado
+      security:
+      - autenticacionJWT: []
+  /productos:
+    get:
+      tags:
+      - Productos
+      summary: Obtener lista de productos
+      parameters:
+      - name: Authorization bearer
+        in: header
+        description: token
+        required: true
+      - name: name
+        in: query
+        required: false
+      responses:
+        "200":
+          description: Operación exitosa
+      security:
+      - autenticacionJWT: []
+    post:
+      tags:
+      - Productos
+      summary: Crear producto
+      description: Solo puede ser realizada por el administrador.
+      parameters:
+      - name: Authorization bearer
+        in: header
+        description: token
+        required: true
+      responses:
+        "201":
+          description: Nuevo producto creado
+      security:
+      - autenticacionJWT: []
+  /productos/:
+    put:
+      tags:
+      - Productos
+      summary: Actualizar producto por ID
+      description: Solo puede ser realizado por el administrador.
+      parameters:
+      - name: Authorization bearer
+        in: header
+        description: token
+        required: true
+      - name: id_producto
+        in: path
+        description: ID del producto
+        required: true
+      responses:
+        "200":
+          description: Actualización exitosa
+      security:
+      - autenticacionJWT: []
+    delete:
+      tags:
+      - Productos
+      summary: Eliminar producto por ID
+      description: Solo puede ser realizado por el administrador.
+      parameters:
+      - name: Authorization bearer
+        in: header
+        description: token
+        required: true
+      - name: id_producto
+        in: path
+        description: ID del producto
+        required: true
+      responses:
+        "200":
+          description: Producto eliminado
+      security:
+      - autenticacionJWT: []
+  /pedido:
+    get:
+      tags:
+      - Pedidos
+      summary: Obtener lista de pedidos
+      description: Solo puede ser realizada por el administrador.
+      parameters:
+      - name: Authorization bearer
+        in: header
+        description: token
+        required: true
+      - name: userId
+        in: query
+        description: Se puede utilizar como filtro de búsqueda por id de usuario
+        required: false
+      responses:
+        "200":
+          description: Operación exitosa
+        "401":
+          description: Sin autorización
+        "403":
+          description: Sin permiso
+        "404":
+          description: No se encontraron resultados
+      security:
+      - autenticacionJWT: []
+    post:
+      tags:
+      - Pedidos
+      summary: Crear pedido
+      description: El usuario pude generar un nuevo pedido con un listado de productos
+      parameters:
+      - name: Authorization bearer
+        in: header
+        description: token
+        required: true
+      responses:
+        "201":
+          description: Pedido creado
+      security:
+      - autenticacionJWT: []
+  /pedido/:
+    delete:
+      tags:
+      - Pedidos
+      summary: Eliminar pedido
+      description: Solo puede ser realizado por el usuario del pedido
+      parameters:
+      - name: Authorization bearer
+        in: header
+        description: token
+        required: true
+      - name: id_pedido
+        in: path
+        description: ID del pedido
+        required: true
+      responses:
+        "200":
+          description: Pedido eliminado
+      security:
+      - autenticacionJWT: []
+definitions: {}
